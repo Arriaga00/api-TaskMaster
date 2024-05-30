@@ -1,0 +1,35 @@
+
+###
+GET http://localhost:3000/api/tasks/consult-tasks/1
+
+###
+POST http://localhost:3000/api/tasks/save-task
+Content-Type: application/json
+
+{
+    "id_user": 1,
+    "id_categories": 1,
+    "title": "Task 1",
+    "description": "Task 1 description",
+    "status": "pending",
+    "priority": "low",
+    "tag": "tag1",
+    "due_date": "2022-01-01"
+}
+
+###
+PUT http://localhost:3000/api/tasks/update-task
+Content-Type: application/json
+
+{
+    "id": 1,
+    "title": "Task 1 updated",
+    "description": "Task 1 updated description",
+    "status": "pending",
+    "priority": "low",
+    "tag": "tag1",
+    "due_date": "2022-01-01"
+}
+
+###
+DELETE http://localhost:3000/api/tasks/delete-task/1

@@ -1,0 +1,28 @@
+###
+GET http://localhost:3000/api/categories/consult-categories/1
+
+###
+POST http://localhost:3000/api/categories/save-category
+Content-Type: application/json
+
+{
+    "id_folder": 1,
+    "name": "Senas"
+}
+
+###
+PUT http://localhost:3000/api/categories/update-category
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Sena"
+}
+
+###
+DELETE http://localhost:3000/api/categories/delete-category
+Content-Type: application/json
+
+{
+    "id": 1
+}

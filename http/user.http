@@ -1,0 +1,32 @@
+###
+GET http://localhost:3000/api/users/consult-users
+
+###
+POST http://localhost:3000/api/users/save-user
+Content-Type: application/json
+
+{
+    "names": "Carlos",
+    "email": "carlos@gmail.com",
+    "password": "carlos123"
+}
+
+###
+PUT http://localhost:3000/api/users/update-user
+Content-Type: application/json
+
+{
+    "id": 1,
+    "names": "Juan Antonio González",
+    "email": "juan@gmail.com",
+    "password": "123456",
+    "confirm_password": "123456"
+}
+
+###
+DELETE http://localhost:3000/api/users/delete-user
+Content-Type: application/json
+
+{
+    "id": 1
+}
