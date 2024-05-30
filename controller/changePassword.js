@@ -16,7 +16,7 @@ export const changePassword = async (req, res) => {
   }
 
   const { data, error } = await resend.emails.send({
-    from: "taskMaster@gmail.com",
+    from: "Acme <onboarding@resend.dev>",
     to: [`${user.email}`],
     subject: "Cambio de contraseña",
     html: "<strong>Aqui puedes cambiar tu contraseña : url</strong>",
