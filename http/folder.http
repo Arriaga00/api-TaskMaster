@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3000/api/folders/get-folders/1
+GET http://localhost:3000/api/folders/get-folders/2
 
 ###
 POST http://localhost:3000/api/folders/save-folder

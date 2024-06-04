@@ -14,6 +14,7 @@ export const getTasks = async (req, res) => {
       "priority",
       "tag",
       "due_date",
+      "id_categories",
     ],
   });
   res.json(tasks);

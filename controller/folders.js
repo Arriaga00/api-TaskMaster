@@ -11,7 +11,7 @@ export const getFolders = async (req, res) => {
       {
         model: Categories,
         as: "categories",
-        attributes: ["name"],
+        attributes: ["name", "id"],
       },
     ],
   });

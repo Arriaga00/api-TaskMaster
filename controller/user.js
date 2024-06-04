@@ -12,8 +12,8 @@ export const saveUser = async (req, res) => {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  saveImage(req.file, email);
-  res.status(200).json({ msg: "la imagen ha sido creada correctamente" });
+  // saveImage(req.file, email);
+  // res.status(200).json({ msg: "la imagen ha sido creada correctamente" });
 
   const user = await User.create({
     names,
