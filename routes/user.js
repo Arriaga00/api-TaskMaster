@@ -14,6 +14,6 @@ const router = Router();
 router.get("/consult-users", getUsers);
 router.post("/save-user", upload.single("image"), saveUser);
 router.put("/update-user", updateUser);
-router.delete("/delete-user", deleteUser);
+router.delete("/delete-user/:id", deleteUser);
 
 export default router;

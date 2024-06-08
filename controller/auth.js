@@ -69,6 +69,7 @@ export const login = async (req, res) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
+
     // const filePath = `uploads/${user.dataValues.email}.png`;
     // const fileBuffer = fs.readFileSync(filePath);
 

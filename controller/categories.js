@@ -50,14 +50,21 @@ export const updateCategory = async (req, res) => {
 
 export const deleteCategory = async (req, res) => {
   const { id } = req.params;
-  const category = await Categories.destroy({ where: { id_folder: id } });
+  const category = await Categories.destroy({ where: { id } });
+  const tasks = await Tasks.destroy({ where: { id_categories: id } });
   if (!category) {
     return res.status(404).json({
       msg: `la categoria con el id: ${id} no existe`,
     });
   }
+
+  if (tasks.length === 0) {
+    res.status(200).json({
+      msg: `la categoria con el id: ${id} no tiene tareas asociadas`,
+    });
+  }
+
   res.status(200).json({
     msg: `la categoria con el id: ${id} ha sido eliminada correctamente`,
-    category,
   });
 };

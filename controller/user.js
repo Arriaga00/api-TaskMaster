@@ -41,7 +41,7 @@ export const updateUser = async (req, res) => {
 };
 
 export const deleteUser = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   const user = await User.destroy({ where: { id } });
 
   if (!user) {
