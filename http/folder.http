@@ -9,3 +9,16 @@ Content-Type: application/json
     "id": 1,
     "name": "Test Folder"
 }
+
+###
+PUT http://localhost:3000/api/folders/update-folder
+Content-Type: application/json
+
+{
+    "id": 10,
+    "name": "Test Folder"
+}
+
+###
+DELETE http://localhost:3000/api/folders/delete-folder/5
+
