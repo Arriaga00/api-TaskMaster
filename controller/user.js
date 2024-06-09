@@ -7,6 +7,22 @@ export const getUsers = async (req, res) => {
   res.json(users);
 };
 
+export const getUser = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findOne({ where: { id } });
+  if (!user) {
+    return res.status(404).json({
+      msg: `el usuario con el id: ${id} no existe`,
+    });
+  }
+
+  res.status(200).json({
+    id: user.id,
+    names: user.names,
+    email: user.email,
+  });
+};
+
 export const saveUser = async (req, res) => {
   const { names, email, password } = req.body;
 
@@ -29,6 +45,8 @@ export const updateUser = async (req, res) => {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
+  const userFront = await User.findOne({ where: { id } });
+
   const user = await User.update(
     { names, email, password: hashedPassword, confirm_password: password },
     { where: { id } }
@@ -36,7 +54,11 @@ export const updateUser = async (req, res) => {
 
   res.status(200).json({
     msg: `el usuario con el id: ${id} ha sido actualizado correctamente`,
-    user,
+    user: {
+      id: userFront.id,
+      names: userFront.names,
+      email: userFront.email,
+    },
   });
 };
 

@@ -2,13 +2,18 @@
 GET http://localhost:3000/api/users/consult-users
 
 ###
+GET http://localhost:3000/api/users/get-user/1
+
+
+
+###
 POST http://localhost:3000/api/users/save-user
 Content-Type: application/json
 
 {
-    "names": "Carlos",
+    "names": "carlos urrego alzate",
     "email": "carlos@gmail.com",
-    "password": "carlos123"
+    "password": "carlos12"
 }
 
 ###
@@ -16,13 +21,12 @@ PUT http://localhost:3000/api/users/update-user
 Content-Type: application/json
 
 {
-    "id": 1,
-    "names": "Juan Antonio González",
-    "email": "juan@gmail.com",
-    "password": "123456",
-    "confirm_password": "123456"
+    "id": 2,
+    "names": "carlos urrego alzate",
+    "email": "carlos@gmail.com",
+    "password": "carlos12"
 }
 
 ###
-DELETE http://localhost:3000/api/users/delete-user/3
+DELETE http://localhost:3000/api/users/delete-user/6
 

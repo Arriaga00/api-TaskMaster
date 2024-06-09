@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { changePassword } from "../controller/changePassword.js";
+import { sendEmail } from "../controller/changePassword.js";
 
 const router = Router();
 
-router.post("/chagnge-password", changePassword);
+router.post("/send-email", sendEmail);
 
 export default router;
