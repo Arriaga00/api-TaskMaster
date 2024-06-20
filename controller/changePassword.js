@@ -30,7 +30,7 @@ export const sendEmail = async (req, res) => {
     html: `
     <h1>Cambio de contraseña</h1>
     <p>Para cambiar su contraseña de taskmaster, por favor visite la siguiente URL:</p>
-    <a href="http://localhost:5173/update-password/${user.id}/${user.email}/${user.names}">Cambiar contraseña de taskmaster</a>
+    <a href="https://frontend-taskmaster.vercel.app/update-password/${user.id}/${user.email}/${user.names}">Cambiar contraseña de taskmaster</a>
     <p>Si no solicitó este cambio de contraseña, puede ignorar este correo electrónico.</p>
     <p>Saludos cordiales,
     El equipo de soporte</p>`,
