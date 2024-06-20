@@ -45,7 +45,7 @@ export const updateUser = async (req, res) => {
 
   const userFront = await User.findOne({ where: { id } });
 
-  if (password === undefined || password === null) {
+  if (password === undefined || password === null || password === "") {
     password = userFront.password;
   }
 
