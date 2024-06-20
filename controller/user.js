@@ -43,9 +43,19 @@ export const saveUser = async (req, res) => {
 export const updateUser = async (req, res) => {
   const { id, names, email, password } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-
   const userFront = await User.findOne({ where: { id } });
+
+  if (password === undefined || password === null) {
+    password = userFront.password;
+  }
+
+  if (!userFront) {
+    res.status(400).json({
+      msg: `el usuario con el id: ${id} no existe`,
+    });
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   const user = await User.update(
     { names, email, password: hashedPassword, confirm_password: password },
