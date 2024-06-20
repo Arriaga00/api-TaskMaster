@@ -1,9 +1,13 @@
 import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
 
-const db = new Sequelize("taskmaster", "root", "Arriaga00", {
-  host: "localhost",
+dotenv.config();
+const env = process.env;
+
+const db = new Sequelize(env.DB_NAME, env.DB_USER, env.DB_PASSWORD, {
+  host: env.DB_HOST,
   dialect: "mysql",
-  port: 3306,
+  port: env.DB_PORT,
 });
 
 export default db;
