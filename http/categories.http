@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3000/api/categories/consult-categories/1
+GET http://localhost:3000/api/categories/consult-categories/3
 
 ###
 POST http://localhost:3000/api/categories/save-category

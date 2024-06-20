@@ -15,7 +15,7 @@ export const login = async (req, res) => {
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
-      return res.status(404).json({ msg: "User not found" });
+      return res.status(404).json({ msg: "El usuario no existe" });
     }
 
     const isValid = await bcrypt.compare(password, user.dataValues.password);
@@ -30,10 +30,10 @@ export const login = async (req, res) => {
           { blocked: false, failed_login: 0 },
           { where: { email } }
         );
-        throw new Error("User unblocked");
+        throw new Error("Usuario desbloqueado");
       } else {
         res.status(401).json({
-          msg: `The user is blocked, please contact customer service `,
+          msg: `El usuario está bloqueado, póngase en contacto con el servicio de atención al cliente `,
         });
       }
       return true;
@@ -44,22 +44,22 @@ export const login = async (req, res) => {
       failed_login++;
 
       const currentDate = new Date().toISOString();
-      if (failed_login >= 3) {
+      if (failed_login >= 120) {
         await User.update(
           { blocked: true, last_failed_login: currentDate },
           { where: { email } }
         );
 
         res.status(404).json({
-          msg: `The user has been blocked for too many failed attempts.`,
+          msg: `El usuario ha sido bloqueado por demasiados intentos fallidos.`,
         });
         return;
       } else {
         await User.update(
-          { failed_login, last_failed_login: currentDate },
+          { failed_login: 0, last_failed_login: currentDate },
           { where: { email } }
         );
-        res.status(404).json({ msg: `The username/password is not correct` });
+        res.status(404).json({ msg: `El Correo/contraseña no es correcto` });
         return;
       }
     }
